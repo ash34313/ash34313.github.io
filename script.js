@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const menuToggle = document.getElementById('menuToggle');
+    const toggleIcon = menuToggle.querySelector('i');
     
     const overlay = document.createElement('div');
     overlay.className = 'nav-overlay';
     overlay.innerHTML = `
-        <div class="close-btn" id="closeNav"><i class="fas fa-times"></i></div>
         <a href="#about" class="menu-link">About</a>
         <a href="#skills" class="menu-link">Technical Expertise</a>
         <a href="#projects" class="menu-link">Featured Projects</a>
@@ -65,10 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.body.appendChild(overlay);
 
-    const closeNav = document.getElementById('closeNav');
     const menuLinks = document.querySelectorAll('.menu-link');
 
-    menuToggle.addEventListener('click', () => overlay.classList.add('open'));
-    closeNav.addEventListener('click', () => overlay.classList.remove('open'));
-    menuLinks.forEach(link => link.addEventListener('click', () => overlay.classList.remove('open')));
+    menuToggle.addEventListener('click', () => {
+        const isOpen = overlay.classList.toggle('open');
+        menuToggle.classList.toggle('menu-active');
+        
+        if (isOpen) {
+            toggleIcon.className = 'fas fa-times'; 
+        } else {
+            toggleIcon.className = 'fas fa-bars'; 
+        }
+    });
+
+    menuLinks.forEach(link => link.addEventListener('click', () => {
+        overlay.classList.remove('open');
+        menuToggle.classList.remove('menu-active');
+        toggleIcon.className = 'fas fa-bars';
+    }));
 });
+    

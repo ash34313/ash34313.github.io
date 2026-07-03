@@ -115,6 +115,13 @@ header {
     box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
 }
 
+.menu-toggle.menu-active {
+    color: var(--text-primary);
+    background: linear-gradient(90deg, var(--tech-blue), var(--mint-accent));
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+    z-index: 2600;
+}
+
 .floating-brand-logo {
     position: fixed;
     bottom: 24px;
@@ -172,9 +179,8 @@ header {
     color: #0a0f1d;
     background: linear-gradient(90deg, var(--mint-accent), var(--tech-blue-glow));
     padding: 6px 12px;
-    border-radius: 6px;
-    display: table; 
-    margin: 0 auto 24px auto; 
+    display: table;
+    margin: 0 auto 24px auto;
     text-transform: uppercase;
     text-align: center;
 }
@@ -404,11 +410,11 @@ section {
     transform: translateY(0);
 }
 
-
 @media (max-width: 960px) {
     .side-marquee { display: none; }
     .menu-toggle { left: 24px; }
 }
+
 @media (min-width: 768px) {
     .project-card:nth-child(odd) {
         transform: translateX(-45px); 
@@ -741,10 +747,12 @@ section {
     position: relative;
     min-height: 40px;
     width: 100%;
+    gap: 16px;
 }
 
 .card-actions.layout-centered-actions {
     justify-content: center;
+    padding-right: 40px;
 }
 
 .card-actions.layout-right-icon-only {
@@ -975,4 +983,72 @@ section {
     color: var(--mint-accent);
     background: rgba(16, 185, 129, 0.12);
     border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+@media (max-width: 580px) {
+    .skills-box {
+        min-height: auto;
+        padding: 32px 16px;
+    }
+    
+    .skills-header-wrapper {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .skills-header-wrapper .box-header {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin-bottom: 12px;
+        white-space: normal;
+        text-align: center;
+    }
+    
+    .skills-header-wrapper .chips-container {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 12px 8px;
+        padding: 0;
+    }
+    
+    .skills-box:first-of-type .chip:nth-child(5),
+    .skills-box:first-of-type .chip:nth-child(6),
+    .skills-box:first-of-type .chip:nth-child(7),
+    .skills-box:first-of-type .chip:nth-child(8) {
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    .chip {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        animation: floatGently 4s ease-in-out infinite alternate !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-actions.layout-centered-actions {
+        padding-right: 0;
+        padding-bottom: 48px;
+    }
+    
+    .center-buttons-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    
+    .center-buttons-group .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn-icon.corner-github-icon {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+    }
 }
