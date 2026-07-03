@@ -1052,3 +1052,58 @@ section {
         right: auto;
     }
 }
+
+@media (max-width: 768px) {
+    main {
+        padding: 12px;
+        overflow-x: hidden;
+    }
+
+    .hero-section h1 {
+        font-size: 2.0rem;
+    }
+
+    .hero-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .hero-section h3 {
+        font-size: 1.0rem;
+    }
+
+    .hero-section p {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-wrapper h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .mobile-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .menu-toggle {
+        left: 16px;
+        top: 16px;
+    }
+}
