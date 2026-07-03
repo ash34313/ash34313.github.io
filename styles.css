@@ -1107,3 +1107,13 @@ section {
         top: 16px;
     }
 }
+
+@media (max-width: 580px) {
+    .floating-brand-logo {
+        bottom: auto;
+        top: 24px;
+        right: 16px;
+        padding: 8px 12px;
+        font-size: 1.1rem;
+    }
+}
